@@ -1,26 +1,33 @@
 const elem = document.querySelector("input");
 const output = document.getElementById("output");
 
+const palindromeChecker = () => {
+	let start = 0;
+	let end = input.length - 1;
+	while (start < end) {
+		if (input[start] != input[end]) {
+			return false;
+		}
+		start += 1;
+		end -= 1;
+	}
+	return true;
+};
+
 handleInput = () => {
 	input = elem.value;
 	if (input < 0 || isNaN(input)) {
 		output.textContent =
 			"Invalid input. Please enter a positive numeric value.";
 		output.style.color = "red";
+	} else if (input.length == 0) {
+		output.textContent = null;
+	} else if (palindromeChecker(input)) {
+		output.textContent = "Yes. This is a palindrome!";
+		output.style.color = "green";
 	} else {
-		let start = 0;
-		let end = input.length - 1;
-		while (start < end) {
-			if (input[start] != input[end]) {
-				output.textContent = "No. Try again.";
-				output.style.color = "red";
-				break;
-			}
-			start += 1;
-			end -= 1;
-			output.textContent = "Yes. This is a palindrome!";
-			output.style.color = "green";
-		}
+		output.textContent = "No. Try again.";
+		output.style.color = "red";
 	}
 };
 
