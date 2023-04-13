@@ -1,11 +1,11 @@
 const elem = document.querySelector("input");
 const output = document.getElementById("output");
 
-const palindromeChecker = () => {
+const palindromeChecker = (input) => {
 	let start = 0;
 	let end = input.length - 1;
 	while (start < end) {
-		if (input[start] != input[end]) {
+		if (input[start] !== input[end]) {
 			return false;
 		}
 		start += 1;
@@ -14,7 +14,7 @@ const palindromeChecker = () => {
 	return true;
 };
 
-handleInput = () => {
+handleInput = (input) => {
 	input = elem.value;
 	if (input < 0 || isNaN(input)) {
 		output.textContent =
