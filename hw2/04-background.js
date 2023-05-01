@@ -6,7 +6,7 @@ getRandomNumber = (max) => {
 	return Math.floor(Math.random() * max);
 };
 
-changeBackgroundColor = (maxRGB = 255) => {
+changeBackgroundColor = (maxRGB = 256) => {
 	const red = getRandomNumber(maxRGB);
 	const green = getRandomNumber(maxRGB);
 	const blue = getRandomNumber(maxRGB);
@@ -18,15 +18,16 @@ let intervalDuration = setInterval(() => {
 	changeBackgroundColor();
 }, 3000);
 
-
-
 //toggle Button to start and stop
 handleChange = (event) => {
 	if (toggleButton.value === "Start") {
+		if (userDuration > 0){
 		let userDuration = input.value * 1000;
 		intervalDuration = setInterval(changeBackgroundColor, userDuration);
 		toggleButton.value = "Stop";
 		toggleButton.className = "btn btn-danger my-3";
+		}
+
 	} else {
 		clearInterval(intervalDuration);
 		input.value = "";
@@ -37,3 +38,4 @@ handleChange = (event) => {
 };
 
 toggleButton.addEventListener("click", handleChange);
+window.onload = changeBackgroundColor;
