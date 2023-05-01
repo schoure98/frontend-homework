@@ -38,4 +38,3 @@ handleChange = (event) => {
 };
 
 toggleButton.addEventListener("click", handleChange);
-window.onload = changeBackgroundColor;
