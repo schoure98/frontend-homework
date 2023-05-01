@@ -21,13 +21,10 @@ let intervalDuration = setInterval(() => {
 //toggle Button to start and stop
 handleChange = (event) => {
 	if (toggleButton.value === "Start") {
-		if (userDuration > 0){
 		let userDuration = input.value * 1000;
 		intervalDuration = setInterval(changeBackgroundColor, userDuration);
 		toggleButton.value = "Stop";
 		toggleButton.className = "btn btn-danger my-3";
-		}
-
 	} else {
 		clearInterval(intervalDuration);
 		input.value = "";
