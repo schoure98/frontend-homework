@@ -16,7 +16,7 @@ const CharacterPage = () => {
         const apiData = response.data;
         setCharacters(apiData);
       } catch (error) {
-        console.log(error);
+        console.log("Error: ", error);
       }
     };
     fetchCharacters();
@@ -30,8 +30,8 @@ const CharacterPage = () => {
         <Container style={{ display: "flex", justifyContent: "center" }}>
           <Card
             key={index}
-            className="py-3"
-            style={{ width: "24rem", justifyContent: "center" }}
+            className="py-3 text-center"
+            style={{ width: "24rem"}}
           >
             <Card.Body>
               <Card.Img
@@ -40,7 +40,7 @@ const CharacterPage = () => {
                 src={character.imageUrl}
                 alt={character.fullName}
               />
-              <Card.Title style={{ textAlign: "center" }}>
+              <Card.Title className="text-center">
                 {character.fullName}
               </Card.Title>
             </Card.Body>
